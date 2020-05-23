@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "server": "nodemon index.js",
+    "start": "node index.js",
     "test": "cross-env DB_ENV=testing jest --watch --verbose --coverage --runInBand"
   },
   "repository": {
@@ -25,11 +26,15 @@
     "jsonwebtoken": "^8.5.1",
     "knex": "^0.21.1",
     "knex-cleaner": "^1.3.0",
+    "pg": "^8.2.1",
     "sqlite3": "^4.2.0"
   },
   "devDependencies": {
     "cross-env": "^7.0.2",
     "nodemon": "^2.0.4",
     "supertest": "^4.0.2"
+  },
+  "jest": {
+    "testEnvironment": "node"
   }
 }
