@@ -17,7 +17,7 @@ module.exports = {
     }
   },
   testing: {
-    client: "sqlite3",
+    client: "pg",
     connection: {
       filename: "./data/test.db3",
     },
