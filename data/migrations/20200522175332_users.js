@@ -36,6 +36,15 @@ exports.up = function(knex) {
       .inTable('songs')
       .onDelete('CASCADE')
       .onUpdate('CASCADE')
+
+      tbl
+      .integer('userId')
+      .unsigned()
+      .notNullable()
+      .references('id')
+      .inTable('users')
+      .onDelete('CASCADE')
+      .onUpdate('CASCADE')
       })
 };
 

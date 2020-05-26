@@ -6,7 +6,8 @@ exports.seed = function(knex) {
       // Inserts seed entries
       return knex('savedSongs').insert([
         {
-          songId: 1
+          songId: 1,
+          userId: 1
         }
       ]);
     });
