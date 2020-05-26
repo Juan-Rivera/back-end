@@ -29,20 +29,13 @@ exports.up = function(knex) {
       tbl.increments()
 
       tbl
-      .string('songTitle', 255)
+      .string('songId', 255)
+      .unsigned()
       .notNullable()
-      .references('songTitle')
+      .references('id')
       .inTable('songs')
       .onDelete('CASCADE')
       .onUpdate('CASCADE')
-      
-      tbl
-      .string('artistName', 255)
-      .notNullable()
-      .references('artistName')
-      .inTable('songs')
-      .onDelete('CASCADE')
-      .onUpdate('CASCADE') 
       })
 };
 

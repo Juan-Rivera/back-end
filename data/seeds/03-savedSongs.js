@@ -6,8 +6,7 @@ exports.seed = function(knex) {
       // Inserts seed entries
       return knex('savedSongs').insert([
         {
-          songTitle: "Wicked Game",
-          artistName: "Johnnyswim"
+          songId: 1
         }
       ]);
     });
