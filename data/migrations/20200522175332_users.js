@@ -29,7 +29,7 @@ exports.up = function(knex) {
       tbl.increments()
 
       tbl
-      .string('songId', 255)
+      .integer('songId')
       .unsigned()
       .notNullable()
       .references('id')
