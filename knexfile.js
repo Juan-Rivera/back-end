@@ -1,5 +1,5 @@
 // Update with your config settings.
-const pgConnection = process.env.DATABASE_URL;
+const pgConnection = process.env.DATABASE_URL || 'postgres://rbaerqqaoyjxak:b26f64a6bd3ace97e909898d72f98cd4160a7eacf900aef948d0d99ebadd2bfd@ec2-54-86-170-8.compute-1.amazonaws.com:5432/dlcng62aqv22n';
 
 module.exports = {
 
@@ -17,7 +17,7 @@ module.exports = {
     }
   },
   testing: {
-    client: "pg",
+    client: "sqlite3",
     connection: {
       filename: "./data/test.db3",
     },
