@@ -27,7 +27,3 @@ async function add(user) {
         throw error
     }
 }
-
-// async function add(user){
-//     return db('users').insert(user)
-// }
