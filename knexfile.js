@@ -15,7 +15,6 @@ module.exports = {
     seeds: {
       directory: './data/seeds'
     }
-
   },
   testing: {
     client: "sqlite3",
@@ -28,7 +27,7 @@ module.exports = {
     },
     seeds: {
       directory: "./data/seeds",
-    },
+    }
   },
 
   // heroku postgres
