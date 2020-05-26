@@ -1,5 +1,5 @@
 // Update with your config settings.
-const pgConnection = process.env.DATABASE_URL || "postgres://rbaerqqaoyjxak:b26f64a6bd3ace97e909898d72f98cd4160a7eacf900aef948d0d99ebadd2bfd@ec2-54-86-170-8.compute-1.amazonaws.com:5432/dlcng62aqv22n";
+const pgConnection = process.env.DATABASE_URL || "postgres://sbnrlefudaxgep:354015ab31f3185cbb2596c0c1d2930b7b20e4dd09aa7640ef33573cda2305af@ec2-54-159-138-67.compute-1.amazonaws.com:5432/dfikf4drso4vf7";
 
 module.exports = {
 
