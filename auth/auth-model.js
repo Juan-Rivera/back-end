@@ -20,9 +20,12 @@ function findByFilter(filter) {
 }
 
 async function add(user) {
-    const [id] = await db('users').insert(user);
+    // const [id] = await db('users').insert(user);
   
-    return findById(id);
+    // return findById(id);
+    const [newUser] = await db('users').insert(user, '*');
+  
+    return newUser;
   }
 
 // async function add(user) {
