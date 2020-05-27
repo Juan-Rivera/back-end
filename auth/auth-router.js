@@ -9,12 +9,12 @@ function isValid(user) {
   }
 
 router.post('/register', (req, res) => {
-    const {username, password} = req.body
+    const {name, username, password} = req.body
 
     if(isValid(req.body)){
-        Users.add({username, password:bcrypt.hashSync(password, 8)})
+        Users.add({name, username, password:bcrypt.hashSync(password, 8)})
         .then(user => {
-            res.status(201).json({username:username})
+            res.status(201).json({name: name, username:username})
         })
         .catch(e => {
             res.status(500).json({ error: e.message })
