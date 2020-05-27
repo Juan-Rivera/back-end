@@ -45,6 +45,18 @@ router.post('/login', (req, res) => {
     }
 })
 
+router.put('/:id', (req, res) => {
+    const id = req.params.id
+    const changes = req.body
+    Users.update(changes, id)
+    .then(song => {
+        res.status(200).json(song)
+    })
+    .catch(e => {
+        res.status(500).json({ error: e.message})
+    })
+})
+
 router.get('/', restricted, (req, res) => {
     Users.find()
     .then(users => {

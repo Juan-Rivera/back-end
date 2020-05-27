@@ -4,7 +4,8 @@ module.exports = {
     find,
     findById,
     findByFilter,
-    add
+    add,
+    update
 }
 
 function find(){
@@ -27,6 +28,12 @@ async function add(user) {
   
     return newUser;
   }
+
+  function update(changes, id){
+    return db('savedSongs')
+    .update(changes)
+    .where({id})
+}
 
 // async function add(user) {
 //     try{

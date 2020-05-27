@@ -14,6 +14,9 @@ router.get('/', (req, res) => {
     })
 })
 
+// user will search via song name
+// 10 songs back
+
 router.get('/saved', (req, res) => {
     Songs.findSavedSongs()
     .then(songs => {
@@ -62,24 +65,24 @@ router.post('/save/:id', (req, res) => {
     })
 })
 
-router.put('/:id', (req, res) => {
-    const id = req.params.id
-    const changes = req.body
-    Songs.update(changes, id)
-    .then(song => {
-        res.status(200).json(song)
-    })
-    .catch(e => {
-        res.status(500).json({ error: e.message})
-    })
-})
+// router.put('/:id', (req, res) => {
+//     const id = req.params.id
+//     const changes = req.body
+//     Songs.update(changes, id)
+//     .then(song => {
+//         res.status(200).json(song)
+//     })
+//     .catch(e => {
+//         res.status(500).json({ error: e.message})
+//     })
+// })
 
 router.delete('/:id', (req, res) => {
     const id = req.params.id
-    Songs.remove(id)
+    Songs.remove()
     .then(song => {
         if(!song){
-            res.status(404).json({error: 'Could not find song by that ID'})
+            res.status(404).json({error: 'Could not find song by thatID'})
         } else {
             res.json({ message: 'successfully removed'})
         }

@@ -28,9 +28,6 @@ function add(song){
 }
 
 async function save(song) {
-    // const [id] = await db('users').insert(user);
-  
-    // return findById(id);
     const [newSong] = await db('savedSongs').insert(song, '*');
   
     return newSong;
