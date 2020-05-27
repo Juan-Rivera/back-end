@@ -1,5 +1,6 @@
 const router = require('express').Router()
 const Songs = require('./songs-model')
+const Users = require('../auth/auth-model')
 const axios = require('axios')
 
 router.get('/', (req, res) => {
@@ -23,11 +24,14 @@ router.get('/saved', (req, res) => {
     })
 })
 
-router.get('/:id', (req, res) => {
+router.get('/save/:id', (req, res) => {
     const id = req.params.id
-    Songs.findById(id)
-    .then(song => {
-        res.status(200).json(song)
+    Users.findById(id)
+    .then(user => {
+        Songs.findSavedSongs()
+        .then(songs => {
+            res.status(200).json(songs)
+        })
     })
     .catch(e => {
         res.status(500).json({ error: e.message})
@@ -44,8 +48,12 @@ router.post('/', (req, res) => {
     })
 })
 
-router.post('/save', (req, res) => {
-    Songs.save(req.body)
+
+//Frotn end must send me the songs. I can post it to my saved songs table
+//need song object
+router.post('/save/:id', (req, res) => {
+    //get userId in the params and song from front end
+    Songs.save({...req.body, userId: req.params.id})
     .then(song => {
         return res.status(200).json(song)
     })
