@@ -34,7 +34,7 @@ function save(song){
         const id = ids[0]
         return db('savedSongs')
         .where({id})
-        .first()
+        // .first()
         .then(song => {
             return song
         })
