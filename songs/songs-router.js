@@ -1,10 +1,12 @@
 const router = require('express').Router()
 const Songs = require('./songs-model')
+const axios = require('axios')
 
 router.get('/', (req, res) => {
-    Songs.find()
-    .then(songs => {
-        res.status(200).json(songs)
+    axios.get('https://spotify-3-ds.herokuapp.com/dummy_data')
+    .then(response => {
+        console.log(response)
+        res.status(200).json(response.data)
     })
     .catch(e => {
         res.status(500).json({ error: e.message})
