@@ -27,19 +27,28 @@ function add(song){
     return db('songs').insert(song)
 }
 
-function save(song){
-    return db('savedSongs')
-    .insert(song)
-    .then(ids => {
-        const id = ids[0]
-        return db('savedSongs')
-        .where({id})
-        // .first()
-        .then(song => {
-            return song
-        })
-    })
+async function save(song) {
+    // const [id] = await db('users').insert(user);
+  
+    // return findById(id);
+    const [newSong] = await db('savedSongs').insert(song, '*');
+  
+    return newSong;
 }
+
+// function save(song){
+//     return db('savedSongs')
+//     .insert(song)
+//     .then(ids => {
+//         const id = ids[0]
+//         return db('savedSongs')
+//         .where({id})
+//         // .first()
+//         .then(song => {
+//             return song
+//         })
+//     })
+// }
 
 function update(changes, id){
     return db('savedSongs')
