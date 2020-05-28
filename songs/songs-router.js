@@ -14,8 +14,14 @@ router.get('/', (req, res) => {
     })
 })
 
-// user will search via song name
-// 10 songs back
+//post request on submit, 
+//which will plug the artist and song name into the URL that we will make a get request to.
+//then make a get request
+
+// router.post('/search/${artist}/${song}')
+// get(/search/${artist}/${song})
+
+
 
 router.get('/saved', (req, res) => {
     Songs.findSavedSongs()
@@ -51,7 +57,6 @@ router.post('/', (req, res) => {
     })
 })
 
-
 //Frotn end must send me the songs. I can post it to my saved songs table
 //need song object
 router.post('/save/:id', (req, res) => {
@@ -79,7 +84,7 @@ router.post('/save/:id', (req, res) => {
 
 router.delete('/:id', (req, res) => {
     const id = req.params.id
-    Songs.remove()
+    Songs.remove(id)
     .then(song => {
         if(!song){
             res.status(404).json({error: 'Could not find song by thatID'})
