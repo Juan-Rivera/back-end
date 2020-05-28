@@ -6,7 +6,7 @@ const axios = require('axios')
 router.get('/', (req, res) => {
     axios.get('https://spotify-3-ds.herokuapp.com/dummy_data')
     .then(response => {
-        console.log(response)
+        // console.log(response)
         res.status(200).json(response.data)
     })
     .catch(e => {

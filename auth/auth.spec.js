@@ -22,49 +22,54 @@ beforeEach(() => {
       })
   })
 
-//   test('register user sends status code 201', async () => {
-//       const res = await request(server)
-//       .post('/api/auth/register')
-//       .send({
-//         username: 'someone',
-//         password: 'password'
-//         })
-//         expect(res.status).toBe(201)
-//   })
+  test('register user sends status code 201', async () => {
+      const res = await request(server)
+      .post('/api/auth/register')
+      .send({
+        name: 'name',
+        username: 'someone',
+        password: 'password'
+        })
+        expect(res.status).toBe(201)
+  })
 
-//   test('login user works', async () => {
-//       const reg = await request(server)
-//       .post('/api/auth/register')
-//       .send({
-//         username: 'someone',
-//         password: 'password'
-//         })
-//       const log = await request(server)
-//       .post('/api/auth/login')
-//       .send({
-//           username: 'someone',
-//           password: 'password'
-//           })
-//       expect(log.body).toMatchObject({
-//           username: 'someone'
-//       })
-//   })
+  test('login user works', async () => {
+      const reg = await request(server)
+      .post('/api/auth/register')
+      .send({
+        name: 'name',
+        username: 'someone',
+        password: 'password'
+        })
+      const log = await request(server)
+      .post('/api/auth/login')
+      .send({
+          name: 'name',
+          username: 'someone',
+          password: 'password'
+          })
+      expect(log.body).toMatchObject({
+          username: 'someone'
+      })
+  })
 
-//   test('can only get list of users if authorized', async () => {
-//     const reg = await request(server)
-//     .post('/api/auth/register')
-//     .send({
-//       username: 'someone',
-//       password: 'password'
-//       })
-//     const log = await request(server)
-//     .post('/api/auth/login')
-//     .send({
-//         username: 'someone',
-//         password: 'password'
-//         })
-//     const get = await request(server)
-//     .get('/api/auth')
-//     .set('Authorization', log.body.token)
-//     expect(get.status).toBe(200)
-//   })
+  test('can only get list of users if authorized', async () => {
+    const reg = await request(server)
+    .post('/api/auth/register')
+    .send({
+      name: 'name',
+      username: 'someone',
+      password: 'password'
+      })
+    const log = await request(server)
+    .post('/api/auth/login')
+    .send({
+        name: 'name',
+        username: 'someone',
+        password: 'password'
+        })
+    const get = await request(server)
+    .get('/api/auth')
+    .set('Authorization', log.body.token)
+    expect(get.status).toBe(200)
+  })
