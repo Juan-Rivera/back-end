@@ -49,8 +49,8 @@ router.put('/:id', (req, res) => {
     const id = req.params.id
     const changes = req.body
     Users.update(changes, id)
-    .then(song => {
-        res.status(200).json(song)
+    .then(user => {
+        res.status(200).json(user)
     })
     .catch(e => {
         res.status(500).json({ error: e.message})

@@ -6,7 +6,10 @@ exports.seed = function(knex) {
       // Inserts seed entries
       return knex('savedSongs').insert([
         {
-          songId: 1,
+          album_art: 'album picture url',
+          album_name: 'album name',
+          artist: 'artist',
+          title: 'title',
           userId: 1
         }
       ]);
