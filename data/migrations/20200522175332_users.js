@@ -40,6 +40,8 @@ exports.up = function(knex) {
       .string('artist', 255).notNullable()
       tbl
       .string('title', 255).notNullable()
+      tbl
+      .string('song_id', 255).notNullable()
 
       tbl
       .integer('userId')
