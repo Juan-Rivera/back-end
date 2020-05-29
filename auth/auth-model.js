@@ -30,7 +30,7 @@ async function add(user) {
   }
 
   function update(changes, id){
-    return db('savedSongs')
+    return db('users')
     .update(changes)
     .where({id})
 }
