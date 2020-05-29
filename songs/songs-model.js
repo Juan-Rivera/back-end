@@ -5,7 +5,6 @@ module.exports = {
     find,
     findById,
     findSavedSongs,
-    add,
     save,
     update,
     remove
@@ -23,29 +22,11 @@ function findSavedSongs(){
     return db('savedSongs')
 }
 
-function add(song){
-    return db('songs').insert(song)
-}
-
 async function save(song) {
     const [newSong] = await db('savedSongs').insert(song, '*');
   
     return newSong;
 }
-
-// function save(song){
-//     return db('savedSongs')
-//     .insert(song)
-//     .then(ids => {
-//         const id = ids[0]
-//         return db('savedSongs')
-//         .where({id})
-//         // .first()
-//         .then(song => {
-//             return song
-//         })
-//     })
-// }
 
 function update(changes, id){
     return db('savedSongs')

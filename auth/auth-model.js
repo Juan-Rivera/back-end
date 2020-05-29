@@ -21,9 +21,6 @@ function findByFilter(filter) {
 }
 
 async function add(user) {
-    // const [id] = await db('users').insert(user);
-  
-    // return findById(id);
     const [newUser] = await db('users').insert(user, '*');
   
     return newUser;
@@ -34,12 +31,3 @@ async function add(user) {
     .update(changes)
     .where({id})
 }
-
-// async function add(user) {
-//     try{
-//         const [id] = await db('users').insert(user, 'id')
-//         return findById(id)
-//     } catch(error) {
-//         throw error
-//     }
-// }
