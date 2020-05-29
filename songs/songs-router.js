@@ -59,6 +59,17 @@ router.post('/', (req, res) => {
 
 //Frotn end must send me the songs. I can post it to my saved songs table
 //need song object
+// router.post('/save', (req, res) => {
+//     //get userId in the params and song from front end
+//     Songs.save(req.body,  req.jwt.sub)
+//     .then(song => {
+//         return res.status(200).json(song)
+//     })
+//     .catch(e => {
+//         res.status(500).json({ error: e.message})
+//     })
+// })
+
 router.post('/save/:id', (req, res) => {
     //get userId in the params and song from front end
     Songs.save({...req.body, userId: req.params.id})
