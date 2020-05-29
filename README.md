@@ -1,22 +1,36 @@
 Back-End for Spotify Song Suggester
 ## Dependencies:
-bcryptjs
-cors
-express
-jest
-jsonwebtoken
-knex
-knex-cleaner
-pg
-sqlite3
+-bcryptjs
+-cors
+-express
+-jest
+-jsonwebtoken
+-knex
+-knex-cleaner
+-pg
+-sqlite3
 
 ## Dev Dependencies:
-cross-env
-nodemon
-supertest
+-cross-env
+-nodemon
+-supertest
+
+## Endpoint Summary Table
+---
+|Type     |Endpoint           |Description        |Auth|
+|:-------:|:-----------------------:|:----------------------:|:--:|
+|POST     |/api/auth/register          |Register User           |No  |
+|POST     |/api/auth/login             |Login User              |No  |
+|PUT      |/api/auth/:id |edit user's Name      |Yes |
+|GET      |api/songs/                 |get all how-to's        |Yes  |
+|GET      |/api/songs/save/:id              |get songs by user id        |Yes  |
+|POST     |/api/songs/save/:id                 |save song to user          |Yes |
+|DELETE   |/api/songs/:id              |remove song from user's saved list |Yes |
+
+## Token must be in the header under Authorization for Auth endpoints
 
 
-☝️ Proposal
+## Proposal
 
 What problem does your app solve?
 Finding more songs you might not otherwise find in the app. 
@@ -28,7 +42,7 @@ What is the mission statement?
 Help users find and visualize songs that fit their personal taste.
 
 
-💡 Features
+## Features
 
 What features are required for your minimum viable product?
 Build a model to recommend songs based on history or picked song.
@@ -50,7 +64,7 @@ Pandora, Shazam, Spotify Radio Function.
 They allow users to listen to music they know, but they limit discoverability, We want to allow more customization in song generation, and have more sociability in user’s creations. IE Playlists.
 
 
-🛠 Frameworks - Libraries
+## Frameworks - Libraries
 
 What 3rd party frameworks/libraries are you considering using?
 Node
@@ -67,34 +81,3 @@ Do the APIs you need require you to contact them to gain access?
 No
 Are you required to pay to use said API(s)?
 No
-
-
-🧮 For Data Scientists
-
-Describe the established data source with at least rough data able to be provided on day one.
-Dataset acquired from kaggle, stored in postgresql database.
-Write a description for what the data science problem is. What uncertainty or prediction are you trying to discover? How could this data be used to find a solution to this problem?
-What kind of target output can you deliver to the Web/UX/iOS teams to work with? Is it in JSON format or something else?
-Output will be JSON.
-
-
-🎯 Target Audience
-
-Who is your target audience? Be specific.
-Spotify Users, music-lovers
-
-What feedback have you gotten from potential users?
-None yet 
-
-Have you validated this problem and your solution with a target audience? Describe how,
-None yet
-
-
-🔑 Prototype Key Feature(s)
-
-How long do you think it will take to implement these features?
-2-3 days, 4th day for debugging
-
-Do you anticipate working on stretch functionality after completion of a Minimal Viable Product?
-Most likely
-

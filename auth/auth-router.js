@@ -67,6 +67,17 @@ router.get('/', restricted, (req, res) => {
     })
 })
 
+router.get('/:id', restricted, (req, res) => {
+    const id = req.params.id
+    Users.findById(id)
+    .then(user => {
+        res.status(200).json(user)
+    })
+    .catch(er => {
+        res.send(er)
+    })
+})
+
 function generateToken(user){
     const payload = {
         sub: user.id,
