@@ -10,6 +10,7 @@ exports.seed = function(knex) {
           album_name: 'album name',
           artist: 'artist',
           title: 'title',
+          song_id: 'someId',
           userId: 1
         }
       ]);

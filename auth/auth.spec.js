@@ -48,9 +48,7 @@ beforeEach(() => {
           username: 'someone',
           password: 'password'
           })
-      expect(log.body).toMatchObject({
-          username: 'someone'
-      })
+      expect(log.status).toBe(201)
   })
 
   test('can only get list of users if authorized', async () => {
