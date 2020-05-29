@@ -46,7 +46,7 @@ router.post('/login', (req, res) => {
     }
 })
 
-router.put('/:id', (req, res) => {
+router.patch('/:id', (req, res) => {
     const id = req.params.id
     const changes = req.body
     Users.update(changes, id)
